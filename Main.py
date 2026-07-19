@@ -1,12 +1,19 @@
 from utilidades import *
 while True:
- print('1 Grados\n2 BFS\n3 Dijkstra\n4 Comparacion\n5 Salir')
- o=input('Opcion:')
-
- if o=='1': print(grados(grafo))
- elif o=='2': print(bfs(grafo,'Quito'))
- elif o=='3':
-  d=dijkstra(grafo,'Quito');print(d)
-  x={k:v for k,v in d.items() if v>0};print(min(x,key=x.get),max(x,key=x.get))
- elif o=='4': print('BFS minimiza escalas; Dijkstra minimiza distancia.')
- elif o=='5': break
+    print("\n===== RED DE CIUDADES =====\n1. Grado de cada ciudad \n2 Recorrido BFS \n3. Ruta mínima con Dijkstra \n4. Salir")
+    o = input("Opción: ")
+    # R1: Mostrar el grado de todas las ciudades.
+    if o == '1':
+        print(grados(grafo))
+    # R2: Ejecutar el recorrido BFS desde Quito.
+    elif o == '2':
+        print(bfs(grafo, 'Quito'))
+    # R3: Ejecutar el algoritmo de Dijkstra.
+    elif o == '3':
+        d = dijkstra(grafo, 'Quito') # Calcula las distancias mínimas desde Quito.
+        print(d)
+        x = {k: v for k, v in d.items() if v > 0}
+        print("Ciudad más cercana:", min(x, key=x.get))
+        print("Ciudad más lejana:", max(x, key=x.get))
+    elif o == '5':
+        break
